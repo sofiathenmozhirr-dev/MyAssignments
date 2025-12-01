@@ -1,0 +1,22 @@
+let GenderType = "female";
+
+function PrintGenderType() {
+  let color = "brown";   // outer color
+
+  if (GenderType.startsWith("female")) {
+    var age = 30;        // var → function scoped
+    let color = "pink";  // inner block-scoped variable
+    console.log("The color is", color);
+  } else {
+    var age = 35;
+    console.log("Printing color inside the block:", color);
+  }
+
+  console.log("Printing the age " + age);
+}
+
+PrintGenderType();
+console.log(GenderType);
+
+ 
+ 
