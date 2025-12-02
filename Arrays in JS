@@ -1,0 +1,19 @@
+const nums = [2, 4, 5, 2, 1, 2];
+const k = 2;
+
+function findOccurrences(nums, k) {
+  let count = 0; // 1. Initialize count to 0
+
+  // 2. Loop through the array
+  for (let i = 0; i < nums.length; i++) {
+    
+    // 3. If element equals k, increment count
+    if (nums[i] === k) {
+      count++;
+    }
+  }
+
+  return count; // 4. Return the count
+}
+
+console.log(findOccurrences(nums, k)); // Output: 3
