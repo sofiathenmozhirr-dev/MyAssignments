@@ -1,0 +1,19 @@
+import { expect, test } from "@playwright/test";
+
+test.only(`Handling alerts inside the frame`, async ({ page }) => {
+
+    await page.goto(`https://www.w3schools.com/js/tryit.asp?filename=tryjs_confirm`);
+
+   page.on('dialog', async (alert) => {
+        
+        console.log(`dialog  message : ${alert.message()}`);
+        console.log(`dialog  type : ${alert.type()}`);
+        await alert.accept();
+   });
+   const frame=page.frameLocator(`#iframeResult`);
+   await frame.locator(`//button[text()="Try it"]`).click();
+   await expect(frame.locator('text=You pressed ok!')).toBeVisible();
+   await page.waitForTimeout(2000);
+})
+
+
